@@ -34,6 +34,170 @@ async function testSupabase() {
     }
 }
 
+// Contact Form to Supabase
+function initializeContactForm() {
+    const form = document.getElementById('contactForm');
+    
+    if (!form) {
+        console.warn("⚠️ Contact form not found in DOM");
+        return;
+    }
+    
+    console.log('✅ Contact form found:', form);
+    
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        
+        const fullName = document.getElementById("contactName")?.value.trim();
+        const email = document.getElementById("contactEmail")?.value.trim();
+        const phone = document.getElementById("contactPhone")?.value.trim();
+        const subject = document.getElementById("contactSubject")?.value;
+        const message = document.getElementById("contactMessage")?.value.trim();
+
+        // Validation
+        if (!fullName || !email || !subject || !message) {
+            alert("Please fill all required fields");
+            return;
+        }
+
+        if (fullName.length < 3) {
+            alert("Name must be at least 3 characters long");
+            return;
+        }
+
+        if (!email.includes('@') || email.length < 6) {
+            alert("Please enter a valid email address");
+            return;
+        }
+
+        if (message.length < 20) {
+            alert("Message must be at least 20 characters long");
+            return;
+        }
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = "Sending...";
+        submitBtn.disabled = true;
+
+        try {
+            const { data, error } = await supabase
+                .from("contact_messages")
+                .insert([{
+                    full_name: fullName,
+                    email: email,
+                    phone: phone || null,
+                    subject: subject,
+                    message: message,
+                    created_at: new Date().toISOString()
+                }]);
+
+            if (error) {
+                console.error("❌ Supabase insert error:", error);
+                console.error("Error message:", error.message);
+                console.error("Error details:", error.details);
+                console.error("Error hint:", error.hint);
+                alert(`Failed to send: ${error.message}\n\nPlease try again or contact support.`);
+            } else {
+                console.log("✅ Contact form submitted successfully:", data);
+                alert("Message sent successfully! We'll get back to you soon.");
+                form.reset();
+            }
+        } catch (err) {
+            console.error("❌ Unexpected error:", err);
+            alert("Something went wrong. Please try again.");
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+    
+    console.log('✅ Contact form initialized');
+}
+
+// Scholarship Form to Supabase
+function initializeScholarshipForm() {
+    const form = document.getElementById("scholarshipForm");
+    if (!form) {
+        console.warn("⚠️ Scholarship form not found in DOM");
+        return;
+    }
+    
+    console.log('✅ Scholarship form found:', form);
+    
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const fullName = document.getElementById("fullName")?.value.trim();
+        const email = document.getElementById("email")?.value.trim();
+        const phone = document.getElementById("phone")?.value.trim();
+        const dob = document.getElementById("dob")?.value;
+        const address = document.getElementById("address")?.value.trim();
+        const scholarshipType = document.getElementById("scholarshipType")?.value;
+        const currentClass = document.getElementById("currentClass")?.value.trim();
+        const institution = document.getElementById("institution")?.value.trim();
+        const percentage = document.getElementById("percentage")?.value;
+        const familyIncome = document.getElementById("familyIncome")?.value;
+        const guardianName = document.getElementById("guardianName")?.value.trim();
+        const essay = document.getElementById("essay")?.value.trim();
+        const terms = document.querySelector('input[name="terms"]')?.checked;
+
+        if (!fullName || !email || !phone || !dob || !address || !scholarshipType || !currentClass || !institution || !percentage || !familyIncome || !guardianName || !essay || !terms) {
+            alert("Please fill all required fields and accept the terms");
+            return;
+        }
+
+        if (essay.split(/\s+/).length < 20) {
+            alert("Please write at least 20 words for the scholarship essay");
+            return;
+        }
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = "Submitting Application...";
+        submitBtn.disabled = true;
+
+        try {
+            const { data, error } = await supabase
+                .from("scholarship_applications")
+                .insert([{
+                    full_name: fullName,
+                    email: email,
+                    phone: phone,
+                    date_of_birth: dob,
+                    address: address,
+                    scholarship_type: scholarshipType,
+                    current_class: currentClass,
+                    institution: institution,
+                    percentage: parseFloat(percentage),
+                    family_income: parseFloat(familyIncome),
+                    guardian_name: guardianName,
+                    essay: essay,
+                    terms_accepted: terms,
+                    application_date: new Date().toISOString(),
+                    status: 'pending'
+                }]);
+
+            if (error) {
+                console.error("❌ Supabase insert error:", error);
+                alert("Failed to submit application. Please try again later.");
+            } else {
+                console.log("✅ Scholarship application submitted successfully:", data);
+                alert("Application submitted successfully! We will review your application and contact you soon.");
+                form.reset();
+            }
+        } catch (err) {
+            console.error("❌ Unexpected error:", err);
+            alert("Something went wrong. Please try again.");
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+    
+    console.log('✅ Scholarship form initialized');
+}
+
 // Define all missing functions BEFORE DOMContentLoaded
 function initializeMobileNavigation() {
     console.log('✅ Mobile navigation initialized');
@@ -128,42 +292,10 @@ function initializeScrollEffects() {
         });
     }
 
-    // Show/hide scroll to top button
-    const scrollTopBtn = document.createElement('button');
-    scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    scrollTopBtn.className = 'scroll-top-btn';
-    scrollTopBtn.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: #c69320;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 1000;
-        font-size: 18px;
-    `;
-    document.body.appendChild(scrollTopBtn);
-
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-            scrollTopBtn.style.opacity = '1';
-            scrollTopBtn.style.visibility = 'visible';
-        } else {
-            scrollTopBtn.style.opacity = '0';
-            scrollTopBtn.style.visibility = 'hidden';
-        }
-    });
-
-    scrollTopBtn.addEventListener('click', function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    // REMOVED: Scroll to top button creation completely
+    // This was the arrow that was covering the WhatsApp icon
+    
+    console.log('✅ Scroll effects initialized (scroll-to-top button removed)');
 }
 
 function initializeGSAPReveals() {
@@ -330,6 +462,48 @@ function initializePortfolioFilter() {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 DOM loaded - initializing components');
     
+    // ============================================
+    // CLEANUP: Remove any existing scroll-to-top buttons
+    // ============================================
+    const existingScrollButtons = document.querySelectorAll('.scroll-top-btn, [style*="scroll-top"], button[style*="bottom: 20px"][style*="right: 20px"]');
+    existingScrollButtons.forEach(button => {
+        console.log('🗑️ Removing existing scroll-to-top button');
+        button.remove();
+    });
+    
+    // ============================================
+    // DEBUGGING SECTION - START
+    // ============================================
+    console.log('=== DEBUGGING INFO ===');
+    console.log('Viewport Width:', window.innerWidth);
+    console.log('Viewport Height:', window.innerHeight);
+    console.log('User Agent:', navigator.userAgent);
+    console.log('WhatsApp element exists:', !!document.querySelector('.whatsapp-float'));
+    console.log('Hamburger element exists:', !!document.querySelector('.mobile-menu-btn'));
+
+    // Check computed styles for WhatsApp
+    const whatsappDebug = document.querySelector('.whatsapp-float');
+    if (whatsappDebug) {
+        const whatsappStyles = window.getComputedStyle(whatsappDebug);
+        console.log('WhatsApp Display:', whatsappStyles.display);
+        console.log('WhatsApp Visibility:', whatsappStyles.visibility);
+        console.log('WhatsApp Z-Index:', whatsappStyles.zIndex);
+        console.log('WhatsApp Position:', whatsappStyles.position);
+    }
+
+    // Check computed styles for Hamburger
+    const hamburgerDebug = document.querySelector('.mobile-menu-btn');
+    if (hamburgerDebug) {
+        const hamburgerStyles = window.getComputedStyle(hamburgerDebug);
+        console.log('Hamburger Display:', hamburgerStyles.display);
+        console.log('Hamburger Visibility:', hamburgerStyles.visibility);
+        console.log('Hamburger Z-Index:', hamburgerStyles.zIndex);
+    }
+    console.log('=== END DEBUGGING INFO ===');
+    // ============================================
+    // DEBUGGING SECTION - END
+    // ============================================
+    
     // Test Supabase after DOM loads
     setTimeout(testSupabase, 1000);
     
@@ -340,6 +514,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeParticles();
     initializePortfolioFilter();
     initializeScholarshipForm();
+    initializeContactForm();
     
     // Counter Animation
     function animateCounter(element) {
@@ -546,86 +721,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
-// Scholarship Form to Supabase
-function initializeScholarshipForm() {
-    const form = document.getElementById("scholarshipForm");
-    if (!form) {
-        console.warn("⚠️ Scholarship form not found in DOM");
-        return;
-    }
-    
-    console.log('✅ Scholarship form found:', form);
-    
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const fullName = document.getElementById("fullName")?.value.trim();
-        const email = document.getElementById("email")?.value.trim();
-        const phone = document.getElementById("phone")?.value.trim();
-        const dob = document.getElementById("dob")?.value;
-        const address = document.getElementById("address")?.value.trim();
-        const scholarshipType = document.getElementById("scholarshipType")?.value;
-        const currentClass = document.getElementById("currentClass")?.value.trim();
-        const institution = document.getElementById("institution")?.value.trim();
-        const percentage = document.getElementById("percentage")?.value;
-        const familyIncome = document.getElementById("familyIncome")?.value;
-        const guardianName = document.getElementById("guardianName")?.value.trim();
-        const essay = document.getElementById("essay")?.value.trim();
-        const terms = document.querySelector('input[name="terms"]')?.checked;
-
-        if (!fullName || !email || !phone || !dob || !address || !scholarshipType || !currentClass || !institution || !percentage || !familyIncome || !guardianName || !essay || !terms) {
-            alert("Please fill all required fields and accept the terms");
-            return;
-        }
-
-        if (essay.split(/\s+/).length < 20) {
-            alert("Please write at least 20 words for the scholarship essay");
-            return;
-        }
-
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = "Submitting Application...";
-        submitBtn.disabled = true;
-
-        try {
-            const { data, error } = await supabase
-                .from("scholarship_applications")
-                .insert([{
-                    full_name: fullName,
-                    email: email,
-                    phone: phone,
-                    date_of_birth: dob,
-                    address: address,
-                    scholarship_type: scholarshipType,
-                    current_class: currentClass,
-                    institution: institution,
-                    percentage: parseFloat(percentage),
-                    family_income: parseFloat(familyIncome),
-                    guardian_name: guardianName,
-                    essay: essay,
-                    terms_accepted: terms,
-                    application_date: new Date().toISOString(),
-                    status: 'pending'
-                }]);
-
-            if (error) {
-                console.error("❌ Supabase insert error:", error);
-                alert("Failed to submit application. Please try again later.");
-            } else {
-                console.log("✅ Scholarship application submitted successfully:", data);
-                alert("Application submitted successfully! We will review your application and contact you soon.");
-                form.reset();
-            }
-        } catch (err) {
-            console.error("❌ Unexpected error:", err);
-            alert("Something went wrong. Please try again.");
-        } finally {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }
-    });
-    
-    console.log('✅ Scholarship form initialized');
-}
