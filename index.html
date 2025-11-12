@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MERCI Educational and Welfare Foundation - Home</title>
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="Gemini_Generated_Image_d0q0z7d0q0z7d0q0.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Gemini_Generated_Image_d0q0z7d0q0z7d0q0.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="Gemini_Generated_Image_d0q0z7d0q0z7d0q0.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="Gemini_Generated_Image_d0q0z7d0q0z7d0q0.png">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="Gemini_Generated_Image_pfv7xzpfv7xzpfv7-removebg-preview.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="Gemini_Generated_Image_d0q0z7d0q0z7d0q0-removebg-preview.png" alt="MERCI Foundation Logo">
+                <div class="logo-text">
+                    <h1>MERCI Foundation</h1>
+                    <p>Education & Welfare for All</p>
+                </div>
+            </div>
+            <nav>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul>
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="programs.html" class="nav-link">Programs</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="scholarships.html" class="nav-link">Scholarships</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="#" class="cta-button donate-btn">Donate Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Empowering Lives Through Education & Welfare</h1>
+                <p>Building a brighter future for underprivileged communities through education, skill development, and welfare programs</p>
+                <a href="#" class="cta-button donate-btn">Donate Now</a>
+                <a href="about.html" class="cta-button cta-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Impact</h2>
+                <p>Transforming lives through dedicated service and community support</p>
+            </div>
+            <div class="impact-counters">
+                <div class="counter">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3 data-count="5000">0</h3>
+                    <p>Families Supported in Ration Drives</p>
+                </div>
+                <div class="counter">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3 data-count="1000">0</h3>
+                    <p>Students Guided in Career Development</p>
+                </div>
+                <div class="counter">
+                    <i class="fas fa-briefcase"></i>
+                    <h3 data-count="600">0</h3>
+                    <p>Students Successfully Placed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Programs</h2>
+                <p>We run various initiatives to support education, skill development, and community welfare</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="IMG-20251023-WA0010.jpg" alt="Ration Distribution">
+                    </div>
+                    <div class="program-content">
+                        <h3>Ration Distribution</h3>
+                        <p>Regular food and essential item drives for families in need, ensuring no one goes hungry.</p>
+                        <a href="programs.html#ration" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="IMG-20251023-WA0014.jpg" alt="Educational Programs">
+                    </div>
+                    <div class="program-content">
+                        <h3>Educational Programs</h3>
+                        <p>Free tuition classes, learning centers, and scholarships for underprivileged students.</p>
+                        <a href="programs.html#education" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="IMG-20251023-WA0015.jpg" alt="Career Guidance">
+                    </div>
+                    <div class="program-content">
+                        <h3>Career Guidance</h3>
+                        <p>Workshops, counseling sessions, and job fairs to help students build successful careers.</p>
+                        <a href="programs.html#career" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Make a Difference?</h2>
+            <p>Your contribution can change lives. Join us in our mission to empower communities.</p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button donate-btn">Donate Now</a>
+                <a href="contact.html" class="cta-button cta-secondary">Become a Volunteer</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="donationModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Support Our Cause</h3>
+            <p>Scan this QR code to donate via UPI</p>
+            <div class="qr-code">
+                <img src="image.png" alt="UPI QR Code">
+            </div>
+            <p>You can also donate directly to:</p>
+            <p><strong>MERCI Foundation</strong><br>UPI ID: mercieducationalandw.627392242@hdfcbank</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About MERCI Foundation</h3>
+                    <p>We are dedicated to empowering underprivileged communities through education, welfare, and skill-building initiatives.</p>
+                    <div class="social-icons">
+    <a href="https://www.facebook.com/merciwelfarefoundation" class="social-icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="social-icon x-twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/merciedu.welfarefoundation/" class="social-icon instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="social-icon linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" class="social-icon youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+</div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Our Programs</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="scholarships.html">Scholarships</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 87/152-153,T1,First Floor,GT ROAD,Acharya Nagar,Kanpur,UP(208003)</p>
+                    <p><i class="fas fa-phone"></i> +91 9935200192 (Zeeshan)</p>
+                    <p><i class="fas fa-phone"></i> +91 9935200962 (Naved)</p>
+                    <p><i class="fas fa-phone"></i> +91 7703914801 (Shadab)</p>
+                    <p><i class="fas fa-phone"></i> +91 8303682611 (Faiz Qadri)</p>
+                    <p><i class="fas fa-envelope "></i> merciedu@gmail.com</p> 
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to get updates on our programs and events.</p>
+                    <form id="newsletterForm">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit" class="cta-button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+             <div class="contact-map-loc">
+                    <h2>Find Us Here</h2>
+                    <div class="map-container">
+                        <iframe
+                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.9313694742727!2d80.3307413!3d26.4579411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c47002df5e58b%3A0x5d812f864cffa5d4!2sASDC%2C%20Kanpur!5e0!3m2!1sen!2sin!4v1760768504214!5m2!1sen!2sin"
+                          width="600"
+                           height="450"
+                            style="border:0;"
+                             allowfullscreen=""
+                              loading="lazy" 
+                             referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                    </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MERCI Educational and Welfare Foundation. All Rights Reserved. | Established in 2014</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/+917703914801?text=Hello%20MERCI%20Foundation,%20I%20would%20like%20to%20know%20more%20about%20your%20programs." 
+       class="whatsapp-float" 
+       target="_blank" 
+       aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with us</span>
+    </a>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+</html>
