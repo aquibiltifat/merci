@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -280,3 +281,287 @@
     <script src="script.js"></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - MERCI Foundation</title>
+     <link rel="icon" type="image/png" sizes="16x16" href="Gemini_Generated_Image_d0q0z7d0q0z7d0q0.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Gemini_Generated_Image_d0q0z7d0q0z7d0q0.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="Gemini_Generated_Image_d0q0z7d0q0z7d0q0.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="Gemini_Generated_Image_d0q0z7d0q0z7d0q0.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="Gemini_Generated_Image_d0q0z7d0q0z7d0q0.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Gemini_Generated_Image_d0q0z7d0q0z7d0q0-removebg-preview.png" alt="MERCI Foundation Logo">
+                </a>
+                <div class="logo-text">
+                    <h1>MERCI Foundation</h1>
+                    <p>Education & Welfare for All</p>
+                </div>
+            </div>
+            <nav>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="programs.html" class="nav-link">Programs</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="scholarships.html" class="nav-link">Scholarships</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                    <li><a href="#" class="cta-button donate-btn">Donate Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Get In Touch</h1>
+            <p>We'd love to hear from you. Reach out with questions, suggestions, or volunteer inquiries</p>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="contact-info-grid">
+                <div class="contact-info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Visit Us</h3>
+                    <p> 87/152-153,T1,First Floor,GT ROAD<br>Acharya Nagar<br>Kanpur,UP(208003)</p>
+                </div>
+                <div class="contact-info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>Phone:+91 9935200192 (Zeeshan)<br>Phone:+91 9935200962 (Naved)<br>Phone:+91 7703914801 (Shadab)<br>Mon-Sat: 9:00 AM - 6:00 PM</p>
+                </div>
+                <div class="contact-info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p><i class="fas fa-envelope "></i>  merciedu@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-layout">
+                <div class="contact-form-side">
+                    <h2>Send Us a Message</h2>
+                    <p>Fill out the form below and we'll get back to you as soon as possible</p>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="contactName">Full Name <span class="required">*</span></label>
+                            <input type="text" id="contactName" name="contactName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email Address <span class="required">*</span></label>
+                            <input type="email" id="contactEmail" name="contactEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Phone Number</label>
+                            <input type="tel" id="contactPhone" name="contactPhone">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject">Subject <span class="required">*</span></label>
+                            <select id="contactSubject" name="contactSubject" required>
+                                <option value="">Select Subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="volunteer">Volunteer Opportunity</option>
+                                <option value="donation">Donation Information</option>
+                                <option value="scholarship">Scholarship Query</option>
+                                <option value="partnership">Partnership Proposal</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Your Message <span class="required">*</span></label>
+                            <textarea id="contactMessage" name="contactMessage" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-map-side">
+                    <h2>Find Us Here</h2>
+                    <div class="map-container">
+                        <iframe
+                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.9313694742727!2d80.3307413!3d26.4579411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c47002df5e58b%3A0x5d812f864cffa5d4!2sASDC%2C%20Kanpur!5e0!3m2!1sen!2sin!4v1760768504214!5m2!1sen!2sin"
+                          width="600"
+                           height="450"
+                            style="border:0;"
+                             allowfullscreen=""
+                              loading="lazy" 
+                             referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                    </div>
+                    <div class="social-connect">
+                        <h3>Connect With Us</h3>
+                         <p>We are dedicated to empowering underprivileged communities through education, welfare, and skill-building initiatives.</p>
+                   <div class="social-icons">
+    <a href="https://www.facebook.com/merciwelfarefoundation" class="social-icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="social-icon x-twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/merciedu.welfarefoundation/" class="social-icon instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="social-icon linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" class="social-icon youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our programs and services</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How can I volunteer with MERCI Foundation?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can volunteer by filling out the contact form above with the subject "Volunteer Opportunity" or by emailing us directly at volunteer@mercyfoundation.org. We welcome volunteers for teaching, event management, and administrative support.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I apply for a scholarship?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Visit our Scholarships page and fill out the online application form. Make sure to upload all required documents including marksheets, income certificate, and ID proof. Applications are reviewed on a rolling basis.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Are donations tax-deductible?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, all donations to MERCI Foundation are eligible for tax deduction under Section 80G of the Income Tax Act. We will provide you with a donation receipt for tax purposes.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I sponsor a specific program or child?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer program-specific sponsorship and child sponsorship options. Contact us through the form above or call us directly to discuss sponsorship opportunities that align with your interests.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What areas does MERCI Foundation operate in?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We primarily operate in Kanpur and surrounding areas in UttarPradesh. However, we are expanding our reach to other states and welcome partnerships to extend our services nationwide.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Modal -->
+    <div class="modal" id="donationModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Support Our Cause</h3>
+            <p>Scan this QR code to donate via UPI</p>
+            <div class="qr-code">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICA8cmVjdCB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgZmlsbD0iI2Y4ZjlmYSIvPgogIDxwYXRoIGQ9Ik0xMjUgNTBMNzUgMTAwTDEyNSAxNTBMMTc1IDEwMEwxMjUgNTBaIE0xMDAgMTI1TDUwIDc1SDEwMFYxMjVaIE0xMDAgMTI1VjE3NUg1MEwxMDAgMTI1WiBNMTI1IDE1MEwxNzUgMjAwSDEyNVYxNTBaIE0xNTAgMTI1TDIwMCA3NVYxMjVIMTUwWiBNMTUwIDEyNUgxMjVWMTc1TDE1MCAxMjVaIiBmaWxsPSIjRDhhNDI4Ii8+Cjwvc3ZnPgo=" alt="UPI QR Code">
+            </div>
+            <p>You can also donate directly to:</p>
+            <p><strong>MERCI Foundation</strong><br>UPI ID: mercyfoundation@upi</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About MERCI Foundation</h3>
+                    <p>We are dedicated to empowering underprivileged communities through education, welfare, and skill-building initiatives.</p>
+                   <div class="social-icons">
+    <a href="https://www.facebook.com/merciwelfarefoundation" class="social-icon facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="social-icon x-twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/merciedu.welfarefoundation/" class="social-icon instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="social-icon linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" class="social-icon youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+</div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Our Programs</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="scholarships.html">Scholarships</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>  87/152-153,T1,First Floor,GT ROAD,Acharya Nagar,Kanpur,UP(208003)</p>
+                    <p><i class="fas fa-phone"></i> +91 9935200192 (Zeeshan)</p>
+                    <p><i class="fas fa-phone"></i> +91 9935200962 (Naved)</p>
+                    <p><i class="fas fa-phone"></i> +91 7703914801 (Shadab)</p>
+                    <p><i class="fas fa-phone"></i> +91 8303682611 (Faiz Qadri)</p>
+                    <p><i class="fas fa-envelope "></i> merciedu@gmail.com</p>
+                </div>
+                <div class="footer-column"> 
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to get updates on our programs and events.</p>
+                    <form id="newsletterForm">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit" class="cta-button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 MERCI Educational and Welfare Foundation. All Rights Reserved. | Registered under Section 8 Company Act, 2013</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/9935200192?text=Hello%20MERCI%20Foundation,%20I%20would%20like%20to%20know%20more%20about%20your%20programs." 
+       class="whatsapp-float" 
+       target="_blank" 
+       aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat with us</span>
+    </a>
+    <script src="script.js"></script>
+</body>
+</html>
+>>>>>>> f1e33732b538dd0985b3d35379b49e50e86ee048
